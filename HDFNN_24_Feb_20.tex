@@ -1,0 +1,306 @@
+\documentclass[journal,twocolumn,10pt]{IEEEtran}
+\usepackage{cuted}
+\usepackage{amsfonts}
+\usepackage{amsmath,cases,amssymb}
+\usepackage[dvips]{graphicx}
+\usepackage{cite,color}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage{algorithmicx, algpseudocode}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{mathtools}
+\newcommand{\clZ}{{\cal Z}}
+\newcommand{\clX}{{\cal X}}
+\newcommand{\clL}{{\cal L}}
+\newcommand{\lm}{\lambda_{\max}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\n}{\noindent}
+\newcommand{\clA}{{\cal A}}
+\newcommand{\clD}{{\cal D}}
+\newcommand{\tclA}{\tilde{\cal A}}
+\newcommand{\clF}{{\cal F}}
+\newcommand{\clM}{{\cal M}}
+\newcommand{\clC}{{\cal C}}
+\newcommand{\clB}{{\cal B}}
+\newcommand{\clK}{{\cal K}}
+\newcommand{\clH}{{\cal H}}
+\newcommand{\clN}{{\cal N}}
+\newcommand{\clR}{{\cal R}}
+\newcommand{\non}{\nonumber}
+\newcommand{\qed}{\vspace*{-10.0mm}
+\begin{flushright}
+$\Box$
+\end{flushright}
+}
+\newcommand{\Tr}{\mbox{Trace}}
+\newcommand{\rH}{\mbox{rH}}
+\newcommand{\tr}{\mbox{Trace}}
+\newtheorem{myth}{Theorem}
+\newtheorem{mypro}{Proposition}
+\newtheorem{mylem}{Lemma}
+\newcommand{\all}{\forall}
+\newcommand{\varep}{\varepsilon}
+\newcommand{\bgeqn}{\begin{equation}}
+\newcommand{\edeqn}{\end{equation}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\lan}{\langle}
+\newcommand{\ran}{\rangle}
+\newcommand{\prf}{{\it Proof \ }}
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand{\beqas}{\begin{eqnarray*}}
+\newcommand{\eeqas}{\end{eqnarray*}}
+\newcommand{\vs}{\\ \vskip 1pt \noindent}
+\newcommand{\bAk}{\mathbf{A}_{\mathbf{K}}}
+\newcommand{\bBk}{\mathbf{B}_{\mathbf{K}}}
+\newcommand{\bCk}{\mathbf{C}_{\mathbf{K}}}
+\newcommand{\bDk}{\mathbf{D}_{\mathbf{K}}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\clW}{{\cal W}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\clQ}{{\cal Q}}
+\begin{document}
+\title{Hierarchical fuzzy neural networks on heterogeneous big data with privacy preservation}
+\author{Leijie Zhang, Ye Shi, CT Lin
+\thanks{Leijie Zhang, Ye Shi and CT Lin are with the School of Computer Science, University of Technology, Sydney, NSW 2007, Australia. Email:
+\textsf{Leijie.Zhang@student.uts.edu.au},\textsf{ye.shi-1@uts.edu.au}, \textsf{Chin-Teng.Lin@uts.edu.au}.}
+}
+\date{}
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Hierarchical fuzzy neural networks, heterogeneous big data, distributed clustering, privacy preservation
+\end{IEEEkeywords}
+
+\section{Introduction}
+Big data has been a ubiquitous term as enormous amount of
+data is being and continually generated at an unprecedented
+increasing scale in many areas including social networks, internet of things, commerce, astronomy, biology, medicine, etc \cite{qiu2016survey, tran2019privacy}. Due to the massive amount, high dimension, heterogeneity and unpredictability characteristics of the big data, various challenges are posed on the traditional data mining and machine learning methods. For instance, the massive and high dimensional big data will result in the requirement of extraordinary computational power; the heterogenenity ....
+
+The heterogeneity of data can be brought not only from data formation tools but also information acquisition methods and their devices. Data with diverse meanings and from different sources are one of the common situation, which can exist in both sample and feather level. It is thus usually hard to process due to the possibility of exists of low quality and uncertainty. Massive samples, heterogeneous, multi-source and uncertainty is the most serious challenges faced by big data processing models, dealing with which has become one of the keys to handle big data smoothly. Data processing has developed nowadays to solve heterogeneous big data, including data cleaning, data integration, dimension reduction, and data normalization etc. These processing, however, are complicated and usually needs work together to ensure the effectiveness.
+
+Coping with the missing data of heterogeneous dataset, Alex.al\cite{obinikpo2019big} analysis the feasibility of fusing heterogeneous dataset. Based on the experiments on human activity recognition, they find that wearable equipment are more powerful to against data missing and portable ones need more datasets to make up its missing data. Wang\cite{wang2017heterogeneous} analysis the characters of heterogeneous data and introduced the existing algorithms for analysing heterogeneous big data. He discussed the weakness of continuous auditing(CA) systems when dealing with the analysis of big data and compare the performance of traditional machine learning and deep learning in big data analytic. To resolve the conflict exists in heterogeneous data collected form multiple sources, Li\cite{li2014resolving} proposed an optimization framework which balances truths and source reliability as two sets of variables.
+
+Why fuzzy? Mentioned some advantages of FNN to tackle data uncertainty.
+
+Uncertainty: Loosely defined as “how well the data speaks to the question of interest with respect to the model”, uncertainty over whether the available data will meet the demands of the task begins at the collection stage. Neither sensors or humans are immune to measurement errors; qualitative data, such as social media accounts, are often subjective in nature; and the data collected may not be relevant or might be incomplete. Currently, the best solution for dealing with uncertainty is to build the model through a fuzzy neural network which involves fuzzy rules and fuzzy inference systems to make optimal use of the given data [8-9]. DPCL will be capable of dealing with uncertainty by its fuzzification operation and if-then-rule architecture.
+
+Every gain made by the last decades to improve our lives in social networks, commerce, astronomy, biology, medicine and beyond comes at threat of violations to the privacy and security of our personal data [1-2]. Even when data custodians take the greatest care not to improperly divulge our sensitive information, there are still countless ways an adversary may can illicitly access our information for nefarious purposes. One of the most difficult, and therefore common, attacks to counter is inference – observing seemingly non-sensitive information, such as one’s current location, and using that to infer far more valuable data, such as medical histories or financial information. Satisfying differential privacy, DPCL will guarantee data protection from all currently-known adversarial attacks, including inference attacks, which most commonly occur during data transmission. Differential privacy guarantees are well proven to hold in a centralised settings where a single organisation owns all the data [4-5]. We intend to extend this guarantee to settings with multiple parties.
+
+Multi-party computation: Privacy problems becomes even more severe when different organisations wish to collaboratively learn from their each other’s data without fully disclosing that data to the other parties or breaching any existing privacy agreements. However, recently, distributed machine learning algorithms have emerged as a solution to preserving privacy in these multi-party data sharing scenarios [6-7]. The basic idea is that multiple all the participants jointly compute the model parameters and exchanging their results with their neighbours. DPCL’s algorithm will be based on the ADMM approach, which is a well-known method of solving consensus optimisation problems in a distributed setting.
+
+In summary, DPCL will allow multiple parties to benefit from sharing data, and the powerful insights analytics with shared data can allow, without compromising commitments given over data privacy, without leaving data vulnerable to security attacks, and without concern over whether the data provided by each party is relevant, complete, or compatible. The unique combination of an differential privacy guarantee in a multi-party setting with a distributed fuzzy neural network accomplishes all three of these goals.
+
+Literature about heterogeneous data, ...  Usually, heterogeneous databases can use principle component analysis (PCA) and correlation analysis to reduce the number of dimensions and consider the interactive relations between features in past research [13]. However, as PCA and correlation analysis do not consider nonlinear representative or nonlinear interactive relations between features, they might lose some important information for clustering. Hence, in this paper, instead of using PCA, we consider the double deep autoencoder model for the above issues, as follows:
+
+Privacy concern: distributed clustering method ...
+
+The uncertainty in the data may arise due to many factors including missing values, imprecise measurements, changes in process characteristics during the data generation period, lack of appropriate monitoring of data measurement process to name a few. Internet-of-Things (IoT) systems usually generate a large amount of unstructured and heterogeneous data demanding specialized techniques for data analytics. Thus, decision making in such an environment poses significant challenges and often demands new and innovative design techniques and algorithms for decision making.
+
+High-dimensional types data leads to distributed machine learning. Additionally, the distributed algorithm has the following advantages: parallel and fast computation speed, privacy preserving and system robustness.
+
+The distributed algorithm is built on the well-known alternating direction method of multipliers (ADMM)
+
+Heterogeneous types big data: An intuitive way is to use a hierarchical structure to cluster the different types of the features.
+
+The hierarchical FNN is built on the alternating optimization (AO).
+
+No works on privacy-preserving hierarchical FNN.
+
+The aim of this work is to bring together the
+advantages of both hierarchical and distributed framework into a single fuzzy system to tackle the massive and heterogeneous data, uncertainty issue and privacy concerns in big data environment.
+
+Compared with gradient-type algorithms, alternating minimization has several advantages: (i) it is easy to implement as there is no need to tune optimization parameters like step sizes, (ii) it
+converges very fast in practice, and (iii) the subproblems
+are easy to solve as they usually have closed-form solutions.
+Thus, alternating minimization has been widely used in practice ...
+
+Advantages
+Each iteration usually cheap (single variable optimization)
+No extra storage vectors needed
+No stepsize tuning
+No other pesky parameters that must be tuned
+Simple to implement
+Works well for large-scale problems
+Currently quite popular; parallel versions exist
+Disadvantages
+Tricky if single variable optimization is hard
+Convergence theory can be complicated
+Can slow down near optimum
+Non-differentiable case more tricky
+
+Our contribution:
+1. Use hierarchical structure of FNN to tackle heterogeneous big data
+2. Use distributed clustering method for computational acceleration and privacy preservation.
+3. Use AO to get a local optimal solution. The AO it is easy to implement as there is no need to tune optimization parameters like step sizes. Furthermore, it converges very fast in practice.
+
+The effectiveness of our method is verified by large-scale regression and classification datasets.
+
+\section{Model Formulation for the HFNN}
+
+Mention why we use HFNN, heterogenous again ...
+
+Put the structure of HFNN ...
+
+
+\section{Two-stage optimization algorithm to train the HFNN}
+\subsection{Distributed clustering method for the low-level of HFNN}
+
+\subsection{Alternating optimization for the high-level of HFNN}
+
+\section{Simulation Results}
+In order to verify the effectiveness of our proposed HDFNN model, some datasets with special physical separations are adopted to conducted simulations.
+\subsection{DateSets and Simulation Settings}
+
+High Storage System Data(\textbf{HRSS})\cite{von2017using, hranisavljevic2016novel, von2018enable} is signal data recorded by a high storage system, which consists of 4 conveyor belts and 2 rails. According to the belt moving situation, the job is classified into 2 categories: non-optimized transport and optimized transport. Combined with whether the storage mission is failed, the collected data is split into 4 conditions, among which we choose the one that optimized transport with failures. In the transporting process, distance, power, voltage of each component are collected as features. Thus, there are 3 features given by each component and 18 features altogether. The label denotes if there exist anomalies among the system. There are totally 18 features in each sample, and there are 6544 samples.   \textbf{EEG Dual} data set contains the EEG signal of 11 subjects. Each subject is involved in a brain signal extraction experiment, during which subjects are asked to finish 2 different kinds of tasks. The experiment consists of trials, which is the task performing period, after 1.2s' task, subjects are allowed to take a break. Each subject can have different number of trails and each trial is divided into 17 segmentation, which is adopted in our paper as basic samples. There are 6 different channels are selected and each channel has 4 bands of frequency data, thus 24 features altogether. \textbf{Gas sensor array}: The Gas sensor array under dynamic gas mixtures is time series data for Ethylene and CO in the air, and Ethylene and Methane in air. The sensor array are recorded by 16 chemical sensors of 4 different types, by each of which 1 signal are acquired, thereby, 16 features in total.In our paper, the mixture of Ethylene and CO are used. The the number of samples is 4,208,261.
+
+As for the training and test data separation, 5-fold validation will be applied on \textbf{HRSS} dataset; On \textbf{EEG Dual}, we randomly select 80\% of trails in each subject as training data and the rest 20\% as test data, test data and training data are from different trials. The experiment on EEG Dual is repeated for 10 times and we then average all the accuracy of all 11 subjects; On \textbf{Gas sensor array} dataset, 80\% of samples are randomly selected as training data and the rest as test data. Due to the massive number of this dataset, the experiment is conducted only once. All the details are listed in \ref{tab:para_setting}
+
+\begin{table}[!ht]
+  \centering
+  {\fontsize{9pt}{10pt}\selectfont
+  \vspace{-15pt}
+  \caption{Dataset and Parameter details}
+  \begin{tabular}{|c|c|c|c|c|c|c|} \hline
+  dataset      & feature & brunch & sample    & \multicolumn{3}{|c|}{parameter setting}   \\ \cline{5-7}
+               &         &        &           & agents & rules &  space                   \\ \hline
+   HRSS        & 18      & 6      & 6544      & 5      & 1-5   & $10^{-5:5}$              \\ \hline
+   EEG Dual    & 24      & 6      & -         & 5      & 1-15  & $10^{-5:5}$              \\ \hline
+   Ethylene-CO & 16      & 4      & 4,208,261 & 200    & 1-50  & $10^{-5:5}$              \\ \hline
+  \end{tabular}}
+  \vspace{-10pt}
+  \label{tab:para_setting}
+\end{table}
+
+\subsection{Simulation Performance}
+To verify our models' effectiveness, we compared our model with some other algorithms on both classification and regression tasks. In our paper, HRSS dataset and EEG Dual dataset are used in classification task, and Gas sensor array dataset is used for regression.
+
+For classification task, we compared with Support Vector Machine(SVM) with different kernel functions: linear kernel and RBF kernel. For regression task, we compare our HDFNN with several popular regression algorithm: Linear Regression, Lasso Regression, Ridge Regression and Polynomial Regression. All parameters of these algorithms are choosing from the searching space of $10^{-5:5}$ and the degree of Polynomial Regression is range from 2 to 5.
+
+The performance of HDFNN are list in \ref{tab:cls_map} and \ref{tab:reg_loss}. As in the table, our HDFNN performs better than the other method, which well prove the effectiveness of our model. As listed in \ref{tab:cls_map}, our method which process the features according to the real physical separation performs better than algorithms that feed all features at a time. Our results shows that when it comes with features hold different physical meaning, it would be better to process each kind of feature at first level and then merge the information extracted from first level and get final output.  
+\begin{table*}[!ht]
+  \centering
+  {\fontsize{9pt}{10pt}\selectfont
+  \vspace{-15pt}
+  \caption{Map of classification task}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|} \hline
+  \multirow{2}{*}{dataset} & \multirow{2}{*}{algorithm}  & \multirow{2}{*}{AO ite\#} & \multicolumn{3}{|c|}{Centralized Method} & \multicolumn{3}{|c|}{Distributed Method}    \\ \cline{4-9}
+                            &             &      &Train(\%)            & Test(\%)           & running time & Train(\%)          & Test(\%)           & running time  \\ \hline
+  \multirow{3}{*}{HRSS}     & SVM(linear) & -    & 78.09/0.22          & 78.07/1.76         & 2.83         & -                  & -                  & -             \\ \cline{2-9}
+                            & SVM(rbf)    & -    & 90.47/0.16          & 80.01/0.90         & 3.19         & -                  & -                  & -             \\ \cline{2-9}
+                            & DFNN        & -    & 80.13/0.31          & 76.38/2.17         & 9.15         & -                  & -                  & -             \\ \cline{2-9}
+                            & HDFNN       & 15   & \textbf{81.00/0.33} & \textbf{80.7/0.44} & 10           & \textbf{80.47/0.68}& \textbf{80.53/0.27}& 10            \\ \hline
+  \multirow{3}{*}{EEG Dual} & SVM(linear) & -    & 82.93/3.14          & 76.74/8.13         & 0.24         & -                  & -                  & -             \\ \cline{2-9}
+                            & SVM(rbf)    & -    & 86.56/9.31          & 82.67/4.86         & 0.31         & -                  & -                  & -             \\ \cline{2-9}
+                            & DFNN        & -    & 86.79/3.03          & 73.20/8.23         & 12.21        & -                  & -                  & -             \\ \cline{2-9}
+                            & HDFNN       & 20   & \textbf{94.13/5.22} & \textbf{83.21/7.36}& 16           & \textbf{94.93/3.30}& \textbf{84.55/7.99}& 22            \\ \hline
+  \end{tabular}}
+  %\vspace{-10pt}
+  \label{tab:cls_map}
+\end{table*}
+
+\begin{table*}[!ht]
+  \centering
+  {\fontsize{9pt}{10pt}\selectfont
+  \vspace{-15pt}
+  \caption{Loss of regression task}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|} \hline
+  \multirow{2}{*}{dataset} & \multirow{2}{*}{algorithm}  & \multirow{2}{*}{AO ite\#} & \multicolumn{3}{|c|}{Centralized Method} & \multicolumn{3}{|c|}{Distributed Method}    \\ \cline{4-9}
+                            &             &      &Train(\%)            & Test(\%)           & running time & Train(\%)          & Test(\%)           & running time  \\ \hline
+  \multirow{3}{*}{CO}       & Linear    & -    & 0.11517398          & 0.11501184         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & Lasso     & -    & 0.15436185          & 0.19436185         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & ridge     & -    & 0.11517424          & 0.11501228         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & Polynomial& -    & 0.07621660          & 0.10084350         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & HDFNN     & 50   & \textbf{0.07981518} & \textbf{0.07994587}& 10           & \textbf{0.07827472}& \textbf{0.07833529} & 10           \\ \hline
+  \multirow{3}{*}{Ethylene} & Linear    & -    & 0.11297623          & 0.11321567         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & Lasso     & -    & 0.16735136          & 0.16791244         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & ridge     & -    & 0.11297707          & 0.11321567         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & Polynomial& -    & 0.07334072          & 0.07679098         & 10           & -                  & -                   & 10           \\ \cline{2-9}
+                            & HDFNN     & 50& \textbf{0.07255850} & \textbf{0.07287280}& 10           & \textbf{0.07166558}& \textbf{0.07171235} & 10           \\ \hline
+  \end{tabular}}
+  \vspace{-10pt}
+  \label{tab:reg_loss}
+\end{table*}
+
+\subsection{Parameter Analysis}
+We collect mean average precision(mAPs) of all parameters in the search space on HRSS dataset when the rule number is set as 4, which performs best among chosen 5 rule numbers. The results are plot in \ref{fig:para_analysis}. According to \ref{fig:para_analysis}, proper parameters of our proposed HCFNN and HDFNN are quiet clear, especially for HDFNN. the proper parameters of HDFNN in \ref{fig:para_analysis} looks like a ridge, better performance can be get through select parameters from the ridge. As a conclusion, with the increase of $\alpha$ and $\mu$ HDFNN has lost its function, and a much small parameter will weak the function of HDFNN.
+
+According to \ref{fig:para_analysis}, the accuracy won't drop dramatically as the antecedent layer of HDFNN has make contribution to the model performance, despite of the optimization of AO in consequent layer. When choosing improper parameters, the antecedent layer will make sure the mAp of HRSS stay above 77\%. 
+\begin{figure*}[!hbp]
+  \centering
+  \subfigure[\normalsize mAP of HCFNN on Training data]{
+  \includegraphics[width=0.45\textwidth]{figures/para_c_train_g.eps}
+  }
+  \vspace{3pt}
+  \hspace{3pt}
+  \subfigure[\normalsize  mAP of HCFNN on Test data]{
+  \includegraphics[width=0.45\textwidth]{figures/para_c_test_g.eps}
+  }
+  \vspace{3pt}
+  \hspace{3pt}
+  \subfigure[\normalsize mAP of HDFNN on Training data]{
+  \includegraphics[width=0.45\textwidth]{figures/para_d_train_g.eps}
+  }
+  \vspace{3pt}
+  \vspace{3pt}
+  \subfigure[\normalsize mAP of HDFNN on Training data]{
+  \includegraphics[width=0.45\textwidth]{figures/para_d_test_g.eps}
+  }
+  \vspace{3pt}
+  \vspace{3pt}
+  \vspace{-10pt}
+  \centering
+  \caption{\normalsize Performance of different parameter settings.}
+
+  \label{fig:para_analysis}
+
+\end{figure*}
+
+\subsection{Convergence of Distributed Kmeans}
+
+\begin{figure*}[!hbp]
+  \centering
+  \subfigure[\normalsize Loss of HRSS]{
+  \includegraphics[width=0.31\textwidth]{figures/hrss_loss_tren.eps}
+  }
+  \vspace{3pt}
+  \hspace{3pt}
+  \subfigure[\normalsize Loss of EEG Dual]{
+  \includegraphics[width=0.30\textwidth]{figures/eegdual_loss_tren.eps}
+  }
+  \vspace{3pt}
+  \vspace{3pt}
+  \subfigure[\normalsize  Loss of Ethylene-CO]{
+  \includegraphics[width=0.30\textwidth]{figures/eth_co_loss_tren.eps}
+  }
+  
+  \vspace{3pt}
+  \vspace{3pt}
+  %\vspace{-10pt}
+  %\centering
+  \caption{\normalsize Loss of Kmeans using ADMM.}
+
+  \label{fig:dkmm_loss}
+
+\end{figure*}
+To well generate optimized clustering, we adopted ADMM to achieve global clustering results. As showning in \ref{fig:dkmm_loss}, all this 3 dataset is droping along with iterating. ADMM can converge fast within 40 iterations and according to the performance list in\ref{tab:cls_map}, distributed clustering method can even achieve better mAP than centralized one, which means distributed clustering may generate better clustering results.
+
+\section{Conclusion}
+
+Future work: semi-supervised learning and online learning of the HFNN. Another possible direction is to increase the layers of the consequent part of HFNN.
+\bibliographystyle{ieeetr}
+\bibliography{HFNN}
+\end{document}

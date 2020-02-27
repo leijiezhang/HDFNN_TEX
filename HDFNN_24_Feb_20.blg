@@ -1,0 +1,29 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: HDFNN_24_Feb_20.aux
+The style file: ieeetr.bst
+Database file #1: HFNN.bib
+You're missing a field name---line 542 of file HFNN.bib
+ :   
+ :   %note =         {Version 1.05 available from {\texttt{http://fewcal.kub.nl/sturm}}}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 564 of file HFNN.bib
+ :   
+ :   %note = {Accessed: 2017-08-17}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 1537 of file HFNN.bib
+ : 
+ : %keywords={Automatic control;Cost function;Equations;Load flow;Newton method;Optimal control;Reactive power;Reactive power control;Testing;Voltage control},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 1550 of file HFNN.bib
+ : 
+ : %keywords={load flow;nonlinear programming;quadratic programming;reviews;nonlinear programming;optimal power flow literature review;optimal power flow tracing;quadratic programming;Constraint optimization;Functional programming;Linear programming;Load flow;Power generation economics;Power system economics;Power system planning;Quadratic programming;Reactive power;Voltage},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1561 of file HFNN.bib
+ : 
+ : @Book{Hbook,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 5 error messages)
